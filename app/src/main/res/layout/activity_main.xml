@@ -7,12 +7,207 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/crypto1Value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginEnd="78dp"
+        android:text="$100"
+        app:layout_constraintBottom_toBottomOf="@+id/crypto1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/crypto1" />
+
+    <TextView
+        android:id="@+id/crypto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="122dp"
+        android:text="crypto1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/crypto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="crypto2"
+        app:layout_constraintStart_toStartOf="@+id/crypto1"
+        app:layout_constraintTop_toBottomOf="@+id/crypto1" />
+
+    <TextView
+        android:id="@+id/crypto2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="$300"
+        app:layout_constraintStart_toStartOf="@+id/crypto1Value"
+        app:layout_constraintTop_toBottomOf="@+id/crypto1Value" />
+
+    <TextView
+        android:id="@+id/crypto3Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="$300"
+        app:layout_constraintStart_toStartOf="@+id/crypto2Value"
+        app:layout_constraintTop_toBottomOf="@+id/crypto2Value" />
+
+    <TextView
+        android:id="@+id/crypto6Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="$300"
+        app:layout_constraintStart_toStartOf="@+id/crypto5Value"
+        app:layout_constraintTop_toBottomOf="@+id/crypto5Value" />
+
+    <TextView
+        android:id="@+id/crypto5Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="$300"
+        app:layout_constraintStart_toStartOf="@+id/crypto4Value"
+        app:layout_constraintTop_toBottomOf="@+id/crypto4Value" />
+
+    <TextView
+        android:id="@+id/crypto1Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/crypto1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/crypto1" />
+
+    <TextView
+        android:id="@+id/crypto2Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/crypto1Amount"
+        app:layout_constraintTop_toBottomOf="@+id/crypto1Amount" />
+
+    <TextView
+        android:id="@+id/crypto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="crypto3"
+        app:layout_constraintStart_toStartOf="@+id/crypto2"
+        app:layout_constraintTop_toBottomOf="@+id/crypto2" />
+
+    <TextView
+        android:id="@+id/crypto6Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/crypto5Amount"
+        app:layout_constraintTop_toBottomOf="@+id/crypto5Amount" />
+
+    <TextView
+        android:id="@+id/crypto6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="crypto6"
+        app:layout_constraintStart_toStartOf="@+id/crypto5"
+        app:layout_constraintTop_toBottomOf="@+id/crypto5" />
+
+    <TextView
+        android:id="@+id/crypto4Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/crypto3Amount"
+        app:layout_constraintTop_toBottomOf="@+id/crypto3Amount" />
+
+    <TextView
+        android:id="@+id/crypto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="crypto4"
+        app:layout_constraintStart_toStartOf="@+id/crypto3"
+        app:layout_constraintTop_toBottomOf="@+id/crypto3" />
+
+    <TextView
+        android:id="@+id/crypto5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="crypto5"
+        app:layout_constraintStart_toStartOf="@+id/crypto4"
+        app:layout_constraintTop_toBottomOf="@+id/crypto4" />
+
+    <TextView
+        android:id="@+id/crypto3Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/crypto2Amount"
+        app:layout_constraintTop_toBottomOf="@+id/crypto2Amount" />
+
+    <TextView
+        android:id="@+id/crypto5Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/crypto4Amount"
+        app:layout_constraintTop_toBottomOf="@+id/crypto4Amount" />
+
+    <TextView
+        android:id="@+id/crypto4Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="$300"
+        app:layout_constraintStart_toStartOf="@+id/crypto3Value"
+        app:layout_constraintTop_toBottomOf="@+id/crypto3Value" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="281dp"
+        android:hint="Enter Text"
+        android:inputType="textCapSentences|textAutoCorrect"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/wallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:text="Wallet:"
+        app:layout_constraintBaseline_toBaselineOf="@+id/walletValue"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/walletValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="$1000"
+        app:layout_constraintStart_toEndOf="@+id/wallet"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
