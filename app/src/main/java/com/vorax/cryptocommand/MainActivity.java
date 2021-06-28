@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
     TextView crypto1Amount,crypto2Amount,crypto3Amount,crypto4Amount,crypto5Amount,crypto6Amount, walletValue;
     TextView crypto1Value,crypto2Value,crypto3Value,crypto4Value,crypto5Value,crypto6Value;
 
-    String command;
-    int crypto1;
-    int modulator;
+    String command, typeOfCoin;
+    int crypto1, crypto2, crypto3, crypto4, crypto5, crypto6;
+    int amountOfCoins;
     int walletAmount;
     int cryptoCost;
 
@@ -70,21 +71,20 @@ public class MainActivity extends AppCompatActivity {
 
         command = editText.getText().toString().toLowerCase();
         filteredInput = command.split(" ");
-        modulator = Integer.parseInt(filteredInput[1]);
+        amountOfCoins = Integer.parseInt(filteredInput[1]);
+        typeOfCoin = filteredInput[2];
 
 
-        getCryptoPrice(filteredInput[2]);
 
         if (filteredInput[0].equals("b") || filteredInput[0].equals("buy") ){
-            crypto1Amount.setText(crypto1 + modulator + "");
-            crypto1 = crypto1 + modulator;
-            walletValue.setText(walletAmount - cryptoCost + "");
-            walletAmount = walletAmount - cryptoCost;
+
+            getCryptoPrice(typeOfCoin, amountOfCoins);
+
         }
 
         if (filteredInput[0].equals("s") || filteredInput[0].equals("sell")){
-            crypto1Amount.setText(crypto1 - modulator + "");
-            crypto1= crypto1 - modulator;
+            crypto1Amount.setText(crypto1 - amountOfCoins + "");
+            crypto1= crypto1 - amountOfCoins;
 
 
             walletValue.setText(walletAmount + cryptoCost + "");
@@ -95,25 +95,96 @@ public class MainActivity extends AppCompatActivity {
         Log.d("lol", filteredInput[0]);
         Log.d("lol", filteredInput[1]);
     }
-    public int getCryptoPrice(String s){
+    public int getCryptoPrice(String s, int amount){
 
         switch(s){
-            case "c":  cryptoCost = Integer.parseInt(crypto1Value.getText().toString());
+            case "c":
+
+                cryptoCost = Integer.parseInt(crypto1Value.getText().toString());
+
+                if (walletAmount >= (cryptoCost * amountOfCoins)){
+                    crypto1Amount.setText(crypto1 + amountOfCoins + "");
+                    crypto1 = crypto1 + amountOfCoins;
+                    walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                    walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case "c2":  cryptoCost = Integer.parseInt(crypto2Value.getText().toString());
+
+
+            case "c2":
+                cryptoCost = Integer.parseInt(crypto2Value.getText().toString());
+
+                if (walletAmount >= (cryptoCost * amountOfCoins)) {
+                    crypto2Amount.setText(crypto2 + amountOfCoins + "");
+                    crypto2 = crypto2 + amountOfCoins;
+                    walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                    walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case "c3":  cryptoCost = Integer.parseInt(crypto3Value.getText().toString());
+
+            case "c3":
+
+                cryptoCost = Integer.parseInt(crypto3Value.getText().toString());
+
+                if (walletAmount >= (cryptoCost * amountOfCoins)) {
+                crypto3Amount.setText(crypto3 + amountOfCoins + "");
+                crypto3 = crypto3 + amountOfCoins;
+                walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case "c4":  cryptoCost = Integer.parseInt(crypto4Value.getText().toString());
+            case "c4":
+                cryptoCost = Integer.parseInt(crypto4Value.getText().toString());
+                if (walletAmount >= (cryptoCost * amountOfCoins)) {
+                crypto4Amount.setText(crypto4 + amountOfCoins + "");
+                crypto4 = crypto4 + amountOfCoins;
+                walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case "c5":  cryptoCost = Integer.parseInt(crypto5Value.getText().toString());
+            case "c5":
+                cryptoCost = Integer.parseInt(crypto5Value.getText().toString());
+                if (walletAmount >= (cryptoCost * amountOfCoins)) {
+                crypto5Amount.setText(crypto5 + amountOfCoins + "");
+                crypto5 = crypto5 + amountOfCoins;
+                walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case "c6":  cryptoCost = Integer.parseInt(crypto6Value.getText().toString());
+            case "c6":
+                cryptoCost = Integer.parseInt(crypto6Value.getText().toString());
+                if (walletAmount >= (cryptoCost * amountOfCoins)) {
+                crypto6Amount.setText(crypto6 + amountOfCoins + "");
+                crypto6 = crypto6 + amountOfCoins;
+                walletValue.setText(walletAmount - (cryptoCost * amountOfCoins) + "");
+                walletAmount = walletAmount - cryptoCost;
+                } else {
+                    Toast.makeText(this, "Not enough funds!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             default:
                 Log.e("", "no case");
                 return 1;
         }
         return 1;
+    }
+    public boolean amountChecker(int amount) {
+        if (amount < Integer.parseInt(walletValue.getText().toString())) {
+
+
+            return true;
+        }
+
+        return false;
     }
 }
