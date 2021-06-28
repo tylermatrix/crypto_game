@@ -60,10 +60,24 @@ public class MainActivity extends AppCompatActivity {
                     //here you can have your logic to set text to edittext
                     double random = ThreadLocalRandom.current().nextDouble(0.001, 3);
                     crypto1Value.setText(String.format("%.0f", Double.parseDouble(crypto1Value.getText().toString()) * random) +"" );
-                    crypto2Value.setText(String.format("%.0f", Double.parseDouble(crypto2Value.getText().toString()) * random) +"" );
                     crypto3Value.setText(String.format("%.0f", Double.parseDouble(crypto3Value.getText().toString()) * random) +"" );
-                    crypto4Value.setText(String.format("%.0f", Double.parseDouble(crypto4Value.getText().toString()) * random) +"" );
                     crypto5Value.setText(String.format("%.0f", Double.parseDouble(crypto5Value.getText().toString()) * random) +"" );
+                }
+
+                public void onFinish() {
+
+
+                }
+
+            }.start();
+        } if (timerStart == true) {
+            new CountDownTimer(Long.MAX_VALUE, 4000) {
+
+                public void onTick(long millisUntilFinished) {
+                    //here you can have your logic to set text to edittext
+                    double random = ThreadLocalRandom.current().nextDouble(0.001, 3);
+                    crypto2Value.setText(String.format("%.0f", Double.parseDouble(crypto2Value.getText().toString()) * random) +"" );
+                    crypto4Value.setText(String.format("%.0f", Double.parseDouble(crypto4Value.getText().toString()) * random) +"" );
                     crypto6Value.setText(String.format("%.0f", Double.parseDouble(crypto6Value.getText().toString()) * random) +"" );
                 }
 
@@ -248,8 +262,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto1Amount.setText(crypto1 - amountOfCoins + "");
                     crypto1= crypto1 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto1Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
@@ -260,8 +274,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto2Amount.setText(crypto2 - amountOfCoins + "");
                     crypto2= crypto2 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto2Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
@@ -272,8 +286,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto3Amount.setText(crypto3 - amountOfCoins + "");
                     crypto3= crypto3 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto3Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
@@ -284,8 +298,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto4Amount.setText(crypto4 - amountOfCoins + "");
                     crypto4= crypto4 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto4Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
@@ -296,8 +310,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto5Amount.setText(crypto5 - amountOfCoins + "");
                     crypto5= crypto5 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto5Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
@@ -308,8 +322,8 @@ public class MainActivity extends AppCompatActivity {
 
                     crypto6Amount.setText(crypto6 - amountOfCoins + "");
                     crypto6= crypto6 - amountOfCoins;
-                    walletValue.setText(walletAmount + cryptoCost + "");
                     walletAmount = walletAmount + cryptoCost;
+                    walletValue.setText(Integer.parseInt(walletValue.getText().toString()) + Integer.parseInt(crypto6Value.getText().toString()) + "");
                 } else {
 
                     Toast.makeText(this, "Not enough coins", Toast.LENGTH_SHORT).show();
