@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:text="300"
+        android:text="900"
         app:layout_constraintStart_toStartOf="@+id/crypto2Value"
         app:layout_constraintTop_toBottomOf="@+id/crypto2Value" />
 
@@ -167,7 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:text="6300"
+        android:text="2344"
         app:layout_constraintStart_toStartOf="@+id/crypto3Value"
         app:layout_constraintTop_toBottomOf="@+id/crypto3Value" />
 

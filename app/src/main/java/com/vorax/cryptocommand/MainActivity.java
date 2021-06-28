@@ -1,14 +1,22 @@
 package com.vorax.cryptocommand;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Supplier;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +31,51 @@ public class MainActivity extends AppCompatActivity {
     int walletAmount;
     int cryptoCost;
 
+    private Handler handler;
+    private Runnable handlerTask;
+
+    Boolean timerStart = true;
+
     String[] filteredInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+      /*  HandlerThread handlerThread = new HandlerThread("background-thread");
+        handlerThread.start();
+        final Handler handler = new Handler(handlerThread.getLooper());
+        handler.postDelayed(new Runnable() {
+            @Override public void run() {
+                crypto1Value.setText(642 + "");
+                // call some methods here
+
+                // make sure to finish the thread to avoid leaking memory
+                handlerThread.quitSafely();
+            }
+        }, 4000); */
+        //here you can have your logic to set text to edittext
+        if (timerStart == true) {
+            new CountDownTimer(Long.MAX_VALUE, 4000) {
+
+                public void onTick(long millisUntilFinished) {
+                    //here you can have your logic to set text to edittext
+                    double random = ThreadLocalRandom.current().nextDouble(0.001, 3);
+                    crypto1Value.setText(String.format("%.0f", Double.parseDouble(crypto1Value.getText().toString()) * random) +"" );
+                    crypto2Value.setText(String.format("%.0f", Double.parseDouble(crypto2Value.getText().toString()) * random) +"" );
+                    crypto3Value.setText(String.format("%.0f", Double.parseDouble(crypto3Value.getText().toString()) * random) +"" );
+                    crypto4Value.setText(String.format("%.0f", Double.parseDouble(crypto4Value.getText().toString()) * random) +"" );
+                    crypto5Value.setText(String.format("%.0f", Double.parseDouble(crypto5Value.getText().toString()) * random) +"" );
+                    crypto6Value.setText(String.format("%.0f", Double.parseDouble(crypto6Value.getText().toString()) * random) +"" );
+                }
+
+                public void onFinish() {
+
+
+                }
+
+            }.start();
+        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -62,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }
@@ -184,6 +235,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void volatilityTimer(){
+
+
+    }
+
     public void sellCrypto(String s, int amount){
         switch(s){
             case "c":
@@ -266,4 +323,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 }
+
