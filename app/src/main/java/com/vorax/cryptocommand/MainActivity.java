@@ -24,13 +24,14 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView crypto1Amount,crypto2Amount,crypto3Amount,crypto4Amount,crypto5Amount,crypto6Amount, walletValue;
     TextView crypto1Value,crypto2Value,crypto3Value,crypto4Value,crypto5Value,crypto6Value;
+    TextView IntervalTimer;
 
     String command, typeOfCoin;
     int crypto1, crypto2, crypto3, crypto4, crypto5, crypto6;
     int amountOfCoins;
     int walletAmount;
     int cryptoCost;
-
+    int counter;
     private Handler handler;
     private Runnable handlerTask;
 
@@ -89,6 +90,23 @@ public class MainActivity extends AppCompatActivity {
             }.start();
         }
 
+        if (timerStart == true) {
+            new CountDownTimer(30000, 5000) {
+
+                public void onTick(long millisUntilFinished) {
+                    //here you can have your logic to set text to edittext
+                    IntervalTimer.setText("Interval: " + counter);
+                    counter++;
+                }
+
+                public void onFinish() {
+
+
+                }
+
+            }.start();
+        }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -110,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         walletValue = (TextView)findViewById(R.id.walletValue);
 
+        IntervalTimer = (TextView)findViewById(R.id.intervalCounter);
 
         mButton = (Button)findViewById(R.id.mButton);
 
@@ -128,28 +147,40 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
 
     public void testInput() {
 
-        command = editText.getText().toString().toLowerCase();
-        filteredInput = command.split(" ");
-        amountOfCoins = Integer.parseInt(filteredInput[1]);
-        typeOfCoin = filteredInput[2];
 
 
+        try {
+                command = editText.getText().toString().toLowerCase();
+                filteredInput = command.split(" ");
+                amountOfCoins = Integer.parseInt(filteredInput[1]);
+                typeOfCoin = filteredInput[2];
 
-        if (filteredInput[0].equals("b") || filteredInput[0].equals("buy") ){
+                if (filteredInput[0].equals("b") || filteredInput[0].equals("buy") ){
 
-            buyCrypto(typeOfCoin, amountOfCoins);
+                    buyCrypto(typeOfCoin, amountOfCoins);
 
+                } else if (filteredInput[0].equals("s") || filteredInput[0].equals("sell")){
+                    sellCrypto(typeOfCoin, 1);
+                }
+
+
+        }catch(NullPointerException exception) {
+
+            Toast.makeText(this, exception + "" , Toast.LENGTH_LONG).show();
+        }
+        catch(ArrayIndexOutOfBoundsException exception) {
+            Toast.makeText(this, exception + "" , Toast.LENGTH_LONG).show();
+        } catch (Exception e){
+            Toast.makeText(this, e + "" , Toast.LENGTH_LONG).show();
         }
 
-        if (filteredInput[0].equals("s") || filteredInput[0].equals("sell")){
-            sellCrypto(typeOfCoin, 1);
-        }
+
+
 
 
         Log.d("lol", filteredInput[0]);
